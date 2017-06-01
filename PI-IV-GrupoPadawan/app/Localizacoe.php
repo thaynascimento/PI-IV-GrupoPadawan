@@ -4,7 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Localizacao extends Model
+class Localizacoe extends Model
 {
-    //
+    public function localizacoe(){
+        return $this-> belongsTo(Andare::Class);
+    }
 }

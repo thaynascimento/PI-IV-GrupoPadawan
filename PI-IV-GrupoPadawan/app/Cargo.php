@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Cargos extends Model
+class Cargo extends Model
 {
-    public function usuarios(){
-        return $this-> belongsTo(Usuarios::Class);
+    public function usuario(){
+        return $this-> belongsTo(Usuario::Class);
     }
 }

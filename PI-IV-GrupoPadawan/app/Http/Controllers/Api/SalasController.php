@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class SalaController extends Controller
+class SalasController extends Controller
 {
     /**
      * Display a listing of the resource.
