@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Sala;
+use App\Localizacoe;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class SalasController extends Controller
+class LocalizacoesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class SalasController extends Controller
      */
     public function index()
     {
-        //
+        return Localizacoe::all();
     }
 
     /**
@@ -36,7 +36,12 @@ class SalasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $localizacao = new Localizacoe();
+        $localizacao->descricao = Input::get('descricao');
+        $localizacao['ativo'] = (!isset($localizacao['ativo'])) ? 1 : 0;
+        $localizacao->save();
+
+        return $localizacao;
     }
 
     /**
@@ -47,7 +52,7 @@ class SalasController extends Controller
      */
     public function show($id)
     {
-        //
+        return Localizacoe::find($id);
     }
 
     /**
@@ -80,16 +85,16 @@ class SalasController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id){
-        $sala = Sala::find($id);
+        $localizacao = Localizacoe::find($id);
 
-        if($sala){
-            $sala->delete();
+        if($localizacao){
+            $localizacao->delete();
             return response()->json([
-                'mensagem' => 'Sala excluida!'
+                'mensagem' => 'Localização excluida!'
             ]);
         }
         return response()->json([
-            'erro' => 'Sala inexistente!'
+            'erro' => 'Localização inexistente!'
         ]);
     }
 }

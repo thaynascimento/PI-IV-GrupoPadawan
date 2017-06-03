@@ -18,3 +18,38 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::resource('login', 'LoginController');
+
+Route::group(['namespace' => 'Api'], function(){
+
+    Route::get('usuarios', 'UsuariosController@index');
+    Route::post('usuarios', 'UsuariosController@store');
+    Route::get('usuarios/{usuario}', 'UsuariosController@show');
+    Route::put('usuarios/{usuario}', 'UsuariosController@update');
+    Route::delete('usuarios/{usuario}', 'UsuariosController@destroy');
+
+    Route::get('cargos', 'CargosController@index');
+    Route::post('cargos', 'CargosController@store');
+    Route::get('cargos/{cargo}', 'CargosController@show');
+    Route::put('cargos/{cargo}', 'CargosController@update');
+    Route::delete('cargos/{cargo}', 'CargosController@destroy');
+
+    Route::get('localizacoes', 'LocalizacoesController@index');
+    Route::post('localizacoes', 'LocalizacoesController@store');
+    Route::get('localizacoes/{localizacao}', 'LocalizacoesController@show');
+    Route::put('localizacoes/{localizacao}', 'LocalizacoesController@update');
+    Route::delete('localizacoes/{localizacao}', 'LocalizacoesController@destroy');
+
+    Route::get('andares', 'AndaresController@index');
+    Route::post('andares', 'AndaresController@store');
+    Route::get('andares/{andar}', 'AndaresController@show');
+    Route::put('andares/{andar}', 'AndaresController@update');
+    Route::delete('andares/{andar}', 'AndaresController@destroy');
+
+    Route::get('salas', 'SalasController@index');
+    Route::post('salas', 'SalasController@store');
+    Route::get('salas/{sala}', 'SalasController@show');
+    Route::put('salas/{sala}', 'SalasController@update');
+    Route::delete('salas/{sala}', 'SalasController@destroy');
+
+    Route::get('soap', 'SoapController@show');
+});

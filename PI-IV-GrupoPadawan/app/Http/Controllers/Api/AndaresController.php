@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Sala;
+use App\Andare;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class SalasController extends Controller
+class AndaresController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class SalasController extends Controller
      */
     public function index()
     {
-        //
+        return Andare::all();
     }
 
     /**
@@ -36,7 +36,14 @@ class SalasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $andar = new Andare();
+        $andar->descricao = Input::get('descricao');
+        $andar['ativo'] = (!isset($cargo['ativo'])) ? 1 : 0;
+        $andar->localizacao_id = Input::get('localizacao_id');
+        $andar->save();
+        $andar->localizacoe()->attach(Input::get('localizacao_id'));
+
+        return $andar;
     }
 
     /**
@@ -47,7 +54,7 @@ class SalasController extends Controller
      */
     public function show($id)
     {
-        //
+        return Andare::find($id);
     }
 
     /**
@@ -70,7 +77,19 @@ class SalasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $andar = Andare::find($id);
+
+        if($andar){
+            $andar->descricao = Input::get('nome');
+            $andar['ativo'] = (!isset($cargo['ativo'])) ? 1 : 0;
+            $andar->localizacao_id = Input::get('localizacao_id');
+            $andar->save();
+
+            return $andar;
+        }
+        return response()->json([
+            'erro' => 'Andar inexistente!'
+        ]);
     }
 
     /**
@@ -80,16 +99,16 @@ class SalasController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id){
-        $sala = Sala::find($id);
+        $andar = Andare::find($id);
 
-        if($sala){
-            $sala->delete();
+        if($andar){
+            $andar->delete();
             return response()->json([
-                'mensagem' => 'Sala excluida!'
+                'mensagem' => 'Andar excluído!'
             ]);
         }
         return response()->json([
-            'erro' => 'Sala inexistente!'
+            'erro' => 'Andar inexistente!'
         ]);
     }
 }

@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Sala;
+use App\Cargo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class SalasController extends Controller
+class CargosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class SalasController extends Controller
      */
     public function index()
     {
-        //
+        return Cargo::all();
     }
 
     /**
@@ -36,7 +36,11 @@ class SalasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cargo = new Cargo();
+        $cargo->descricao = Input::get('descricao');
+        $cargo['ativo'] = (!isset($cargo['ativo'])) ? 1 : 0;
+        $cargo->save();
+        return $cargo;
     }
 
     /**
@@ -47,7 +51,7 @@ class SalasController extends Controller
      */
     public function show($id)
     {
-        //
+        return Cargo::find($id);
     }
 
     /**
@@ -70,7 +74,17 @@ class SalasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $cargo = Cargo::find($id);
+
+        if($cargo){
+            $cargo->descricao = Input::get('descricao');
+            $cargo->save();
+
+            return $cargo;
+        }
+        return response()->json([
+            'erro' => 'Cargo inexistente!'
+        ]);
     }
 
     /**
@@ -80,16 +94,16 @@ class SalasController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id){
-        $sala = Sala::find($id);
+        $cargo = Cargo::find($id);
 
-        if($sala){
-            $sala->delete();
+        if($cargo){
+            $cargo->delete();
             return response()->json([
-                'mensagem' => 'Sala excluida!'
+                'mensagem' => 'Cargo excluido!'
             ]);
         }
         return response()->json([
-            'erro' => 'Sala inexistente!'
+            'erro' => 'Cargo inexistente!'
         ]);
     }
 }
