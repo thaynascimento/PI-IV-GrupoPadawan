@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Andare;
-use App\Localizacoe;
 use Illuminate\Http\Request;
 use App\Http\Controllers\DB;
 use Illuminate\Support\Facades\Input;
@@ -28,8 +27,7 @@ class AndaresController extends Controller
      */
     public function create(\Illuminate\Http\Request $request)
     {
-        $localizacoes = Localizacoe::get();
-        return view('andares.cadastrar', ['localizacoes' => $localizacoes]);
+        return view('andares.cadastrar');
     }
 
     /**
@@ -43,9 +41,7 @@ class AndaresController extends Controller
         $andar = new Andare();
         $andar->descricao = Input::get('descricao');
         $andar['ativo'] = (!isset($cargo['ativo'])) ? 1 : 0;
-        $andar->localizacao_id = Input::get('localizacao_id');
         $andar->save();
-        $andar->localizacoe()->attach(Input::get('localizacao_id'));
         return redirect()->route('andares.index');
     }
 
@@ -74,8 +70,6 @@ class AndaresController extends Controller
             'id' => $andar->id,
             'descricao' => $andar->descricao,
             'ativo' => $andar->ativo,
-            'localizacao_id' => $andar->localizacao_id,
-            'localizacoes' =>$localizacoes
         ]);
     }
 
@@ -91,7 +85,6 @@ class AndaresController extends Controller
         $andar = Andare::find($id);
         $andar->descricao = Input::get('descricao');
         $andar->ativo = Input::get('ativo');
-        $andar->localizacao_id = Input::get('localizacao_id');
         $andar->save();
 
         return redirect()->route('andares.index');

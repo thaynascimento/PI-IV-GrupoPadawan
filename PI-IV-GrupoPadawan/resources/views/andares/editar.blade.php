@@ -12,17 +12,6 @@
                     <label>Identificação do Andar:</label><br>
                     <input type="text" name="descricao" value="{{$descricao}}"><p>
                 </div>
-                <select name="localizacao_id">
-                    @forelse($localizacoes as $item)
-                        @if($item->id === $localizacao_id)
-                            <option value="{{$item->id}}" selected>{{$item->descricao}}</option>
-                        @else
-                            <option value="{{$item->id}}">{{$item->descricao}}</option>
-                        @endif
-                    @empty
-                        <option disabled>Nenhuma localização cadastrado</option>
-                    @endforelse
-                </select><p>
                 <label for="ativo">Status: </label><br>
                 <select name="ativo" id="ativo" value="{{$ativo}}">
                     @if($ativo == 1){

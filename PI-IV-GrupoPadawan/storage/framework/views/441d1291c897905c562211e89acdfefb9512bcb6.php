@@ -13,7 +13,6 @@
                     <th>ID</th>
                     <th>Descrição</th>
                     <th>Ativo</th>
-                    <th>Localização</th>
                 </thead>
                 <tbody>
                     <?php $__empty_1 = true; $__currentLoopData = $andares; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
@@ -21,7 +20,6 @@
                             <td><?php echo e($item->id); ?></td>
                             <td><?php echo e($item->descricao); ?></td>
                             <td><?php echo e($item->ativo); ?></td>
-                            <td><?php echo e($item->localizacao->descricao); ?></td>
                             <td>
                                 <a href="<?php echo e(route('andares.edit', ['id' => $item->id])); ?>">Editar</a>
                             </td>

@@ -46,7 +46,7 @@ class UsuariosController extends Controller
         $usuario->email = Input::get('email');
         $usuario->telefone = Input::get('telefone');
         $usuario['lider_de_fuga'] = (!isset($usuario['lider_de_fuga'])) ? 0 : 1;
-        $usuario['ativo'] = (!isset($cargo['ativo'])) ? 1 : 0;
+        $usuario['ativo'] = (!isset($usuario['ativo'])) ? 1 : 0;
         $usuario->cargo_id = Input::get('cargo_id');
         $usuario->senha = Input::get('senha');
         $usuario->save();

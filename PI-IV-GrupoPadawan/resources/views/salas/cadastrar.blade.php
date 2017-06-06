@@ -1,16 +1,17 @@
 <html>
     <head>
-        <title>Cadastro de Localizações</title>
+        <title>Cadastro de Salas</title>
     </head>
     <body>
         <div>
-            <h2>Informe abaixo os dados da localização:</h2>
-            <form method="post" action="{{route('localizacoes.store')}}">
+            <h2>Informe abaixo os dados da sala:</h2>
+            <form method="post" action="{{route('salas.store')}}">
                 <input type="hidden" name="_token" value="{{csrf_token()}}">
                 <div class="form">
-                    <label>Nome da Localização:</label><br>
-                    <input type="text" name="descricao" placeholder="Informe o nome do prédio"><p>
+                    <label>Usuário:</label><br>
+                    <input type="text" name="descricao" placeholder="Informe o nome da sala"><p>
                 </div>
+                <label>Cargo:</label><br>
                 <select name="localizacao_id" id="localizacao_id">
                     @forelse($localizacoes as $item)
                         <option value="{{$item->id}}">{{$item->descricao}}</option>

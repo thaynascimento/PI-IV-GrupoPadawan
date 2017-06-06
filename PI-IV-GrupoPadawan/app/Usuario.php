@@ -10,4 +10,12 @@ class Usuario extends Model
     public function cargo(){
         return $this-> belongsTo(Cargo::Class);
     }
+
+    public function getAtivoAttribute($value){
+        return $value == 1 ? 'Sim' : 'Não';
+    }
+
+    public function getLiderDeFugaAttribute($value){
+        return $value == 1 ? 'Sim' : 'Não';
+    }
 }

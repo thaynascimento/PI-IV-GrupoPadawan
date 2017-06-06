@@ -13,7 +13,6 @@
                     <th>ID</th>
                     <th>Descrição</th>
                     <th>Ativo</th>
-                    <th>Localização</th>
                 </thead>
                 <tbody>
                     @forelse($andares as $item)
@@ -21,7 +20,6 @@
                             <td>{{$item->id}}</td>
                             <td>{{$item->descricao}}</td>
                             <td>{{$item->ativo}}</td>
-                            <td>{{$item->localizacao->descricao}}</td>
                             <td>
                                 <a href="{{route('andares.edit', ['id' => $item->id])}}">Editar</a>
                             </td>

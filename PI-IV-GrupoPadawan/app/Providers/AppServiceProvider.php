@@ -7,6 +7,7 @@ use App\Localizacoe;
 use App\Login;
 use App\Usuario;
 use App\Andare;
+use App\Sala;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -43,10 +44,6 @@ class AppServiceProvider extends ServiceProvider
             $view->with('salas', $salas);
         });
 
-        /*view()->composer('login.index', function($view){
-            $login = Login::get();
-            $view->with('login', $login);
-        });*/
     }
 
     /**

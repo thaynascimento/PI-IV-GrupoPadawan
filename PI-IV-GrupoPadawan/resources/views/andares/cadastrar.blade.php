@@ -11,14 +11,6 @@
                     <label>Identificação do Andar:</label><br>
                     <input type="text" name="descricao" placeholder="Informe a identificação do andar"><p>
                 </div>
-                <label>Selecione a Localização:</label><br>
-                <select name="localizacao_id" id="localizacao_id">
-                    @forelse($localizacoes as $item)
-                        <option value="{{$item->id}}">{{$item->descricao}}</option>
-                    @empty
-                        <option disabled>Nenhuma localização cadastrada!</option>
-                    @endforelse
-                </select><p>
                 <input type="submit" value="Enviar">
             </form>
         </div>

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Andare extends Model
 {
-    public function localizacao(){
-        return $this-> belongsTo(Localizacoe::Class);
+    public function getAtivoAttribute($value){
+        return $value == 1 ? 'Sim' : 'Não';
     }
 }
