@@ -25,13 +25,17 @@
                 </div>
                 <input type="checkbox" name="lider_de_fuga" value="lider_de_fuga">Líder de Fuga?<p>
                 <label>Cargo:</label><br>
-                    <select name="cargo_id" id="cargo_id">
-                        @forelse($cargos as $item)
-                            <option value="{{$item->id}}">{{$item->descricao}}</option>
-                        @empty
-                            <option disabled>Nenhum cargo cadastrado!</option>
-                        @endforelse
-                    </select><p>
+                <select name="cargo_id" id="cargo_id">
+                    @forelse($cargos as $item)
+                        <option value="{{$item->id}}">{{$item->descricao}}</option>
+                    @empty
+                        <option disabled>Nenhum cargo cadastrado!</option>
+                    @endforelse
+                </select><p>
+                <div class="form">
+                    <label>Senha:</label><br>
+                    <input type="password" name="senha" placeholder="******"><p>
+                </div>
                 <input type="submit" value="Enviar">
             </form>
         </div>

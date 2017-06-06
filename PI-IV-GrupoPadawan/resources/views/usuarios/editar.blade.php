@@ -52,6 +52,10 @@
                     }
                     @endif
                 </select><p>
+                <div class="form">
+                    <label>Senha:</label><br>
+                    <input type="password" name="senha" value="{{$senha}}"><p>
+                </div>
                 <input type="submit" value="Enviar">
             </form>
         </div>

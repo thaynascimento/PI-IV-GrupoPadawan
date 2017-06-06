@@ -44,6 +44,7 @@ class UsuariosController extends Controller
         $usuario['lider_de_fuga'] = (!isset($cargo['lider_de_fuga'])) ? 0 : 1;
         $usuario['ativo'] = (!isset($cargo['ativo'])) ? 1 : 0;
         $usuario->cargo_id = Input::get('cargo_id');
+        $usuario->senha = Input::get('senha');
         $usuario->save();
         $usuario->cargos()->attach(Input::get('cargo_id'));
 
@@ -90,6 +91,7 @@ class UsuariosController extends Controller
             $usuario->lider_de_fuga = (bool)Input::get('lider_de_fuga');
             $usuario->ativo = Input::get('ativo');
             $usuario->cargo_id = Input::get('cargo_id');
+            $usuario->senha = Input::get('senha');
             $usuario->save();
 
             return $usuario;

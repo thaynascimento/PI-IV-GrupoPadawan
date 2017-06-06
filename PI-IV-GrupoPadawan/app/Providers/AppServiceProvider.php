@@ -32,7 +32,7 @@ class AppServiceProvider extends ServiceProvider
             $localizacoes = Localizacoe::get();
             $view->with('localizacoes', $localizacoes);
         });
-777
+
         view()->composer('andares.index', function($view){
             $andares = Andare::get();
             $view->with('andares', $andares);

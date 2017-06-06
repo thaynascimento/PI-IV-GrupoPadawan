@@ -45,9 +45,10 @@ class UsuariosController extends Controller
         $usuario->centro_custo = Input::get('centro_custo');
         $usuario->email = Input::get('email');
         $usuario->telefone = Input::get('telefone');
-        $usuario['lider_de_fuga'] = (!isset($cargo['lider_de_fuga'])) ? 0 : 1;
+        $usuario['lider_de_fuga'] = (!isset($usuario['lider_de_fuga'])) ? 0 : 1;
         $usuario['ativo'] = (!isset($cargo['ativo'])) ? 1 : 0;
         $usuario->cargo_id = Input::get('cargo_id');
+        $usuario->senha = Input::get('senha');
         $usuario->save();
         $usuario->cargos()->attach(Input::get('cargo_id'));
 
@@ -84,6 +85,7 @@ class UsuariosController extends Controller
             'lider_de_fuga' => $usuario->lider_de_fuga,
             'ativo' => $usuario->ativo,
             'cargo_id' => $usuario->cargo_id,
+            'senha' => $usuario->senha,
             'cargo' =>$cargos
         ]);
     }
@@ -105,6 +107,7 @@ class UsuariosController extends Controller
         $usuario->lider_de_fuga = (bool)Input::get('lider_de_fuga');
         $usuario->ativo = Input::get('ativo');
         $usuario->cargo_id = Input::get('cargo_id');
+        $usuario->senha = Input::get('senha');
         $usuario->save();
 
         return redirect()->route('usuarios.index');
