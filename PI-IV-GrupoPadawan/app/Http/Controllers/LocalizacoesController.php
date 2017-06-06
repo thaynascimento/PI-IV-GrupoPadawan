@@ -68,6 +68,7 @@ class LocalizacoesController extends Controller
         return view('localizacoes.editar', [
             'id' => $localizacao->id,
             'descricao' => $localizacao->descricao,
+            'ativo' => $localizacao->ativo,
         ]);
     }
 
@@ -82,6 +83,7 @@ class LocalizacoesController extends Controller
     {
         $localizacao = Localizacoe::find($id);
         $localizacao->descricao = Input::get('descricao');
+        $localizacao->ativo = Input::get('ativo');
         $localizacao->save();
 
         return redirect()->route('localizacoes.index');

@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Cargo;
+use App\Login;
 use Illuminate\Http\Request;
 use App\Http\Controllers\DB;
 use Illuminate\Support\Facades\Input;
 
-class CargosController extends Controller
+class LoginsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,7 @@ class CargosController extends Controller
      */
     public function index()
     {
-        $cargos = Cargo::get();
-        return view('cargos.index', $cargos);
+        return view('login.index');
     }
 
     /**
@@ -27,7 +26,7 @@ class CargosController extends Controller
      */
     public function create()
     {
-        return view('cargos.cadastrar');
+        //
     }
 
     /**
@@ -38,11 +37,7 @@ class CargosController extends Controller
      */
     public function store(Request $request)
     {
-        $cargo = new Cargo();
-        $cargo->descricao = Input::get('descricao');
-        $cargo['ativo'] = (!isset($cargo['ativo'])) ? 1 : 0;
-        $cargo->save();
-        return redirect()->route('cargos.index');
+        //
     }
 
     /**
@@ -64,12 +59,7 @@ class CargosController extends Controller
      */
     public function edit($id)
     {
-        $cargo = Cargo::find($id);
-        return view('cargos.editar', [
-            'id' => $cargo->id,
-            'descricao' => $cargo->descricao,
-            'ativo' => $cargo->ativo,
-        ]);
+        //
     }
 
     /**
@@ -79,14 +69,9 @@ class CargosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update($id)
+    public function update(Request $request, $id)
     {
-        $cargo = Cargo::find($id);
-        $cargo->descricao = Input::get('descricao');
-        $cargo->ativo = Input::get('ativo');
-        $cargo->save();
-
-        return redirect()->route('cargos.index');
+        //
     }
 
     /**
@@ -95,10 +80,8 @@ class CargosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($cargos)
+    public function destroy($id)
     {
-        $cargo = Cargo::find($cargos);
-        $cargo->delete();
-        return redirect()->route('cargos.index');
+        //
     }
 }

@@ -4,8 +4,8 @@
     </head>
     <body>
         <div class="container">
-            <h2>Informe abaixo os dados do administrador:</h2>
-            <form method="post" action="{{route('')}}">
+            <h2>Insira os dados para login:</h2>
+            <form method="post">
                 <input type="hidden" name="_token" value="{{csrf_token()}}">
                 <div class="form">
                     <label>Usuário:</label><br>
@@ -15,7 +15,7 @@
                     <label>Senha:</label><br>
                     <input type="text" name="senha" placeholder="Informe a senha"><p>
                 </div>
-                <input type="submit" value="Enviar">
+                <input type="submit" value="Logar">
             </form>
         </div>
     </body>

@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Cargo;
 use App\Localizacoe;
+use App\Login;
 use App\Usuario;
 use App\Andare;
 use Illuminate\Support\ServiceProvider;
@@ -31,7 +32,7 @@ class AppServiceProvider extends ServiceProvider
             $localizacoes = Localizacoe::get();
             $view->with('localizacoes', $localizacoes);
         });
-
+777
         view()->composer('andares.index', function($view){
             $andares = Andare::get();
             $view->with('andares', $andares);
@@ -41,6 +42,11 @@ class AppServiceProvider extends ServiceProvider
             $salas = Sala::get();
             $view->with('salas', $salas);
         });
+
+        /*view()->composer('login.index', function($view){
+            $login = Login::get();
+            $view->with('login', $login);
+        });*/
     }
 
     /**

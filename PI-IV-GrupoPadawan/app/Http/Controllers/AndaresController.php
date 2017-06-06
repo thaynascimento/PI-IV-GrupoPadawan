@@ -68,7 +68,15 @@ class AndaresController extends Controller
      */
     public function edit($id)
     {
-        //
+        $andar = Andare::find($id);
+        $localizacoes = Localizacoe::get();
+        return view('andares.editar', [
+            'id' => $andar->id,
+            'descricao' => $andar->descricao,
+            'ativo' => $andar->ativo,
+            'localizacao_id' => $andar->localizacao_id,
+            'localizacoes' =>$localizacoes
+        ]);
     }
 
     /**
@@ -78,9 +86,15 @@ class AndaresController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
-        //
+        $andar = Andare::find($id);
+        $andar->descricao = Input::get('descricao');
+        $andar->ativo = Input::get('ativo');
+        $andar->localizacao_id = Input::get('localizacao_id');
+        $andar->save();
+
+        return redirect()->route('andares.index');
     }
 
     /**

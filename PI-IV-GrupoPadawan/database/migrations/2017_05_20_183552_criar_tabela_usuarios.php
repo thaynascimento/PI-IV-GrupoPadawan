@@ -28,6 +28,7 @@ class CriarTabelaUsuarios extends Migration
                 ->references('id')
                 ->on('cargos')
                 ->onDelete('cascade');
+            $table->string('senha',255);
         });
     }
 

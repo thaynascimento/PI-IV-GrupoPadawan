@@ -48,5 +48,9 @@
         "preferred-install": "dist",
         "sort-packages": true,
         "optimize-autoloader": true
+    },
+
+    "require": {
+        "artisaninweb/laravel-soap": "0.3.*"
     }
 }

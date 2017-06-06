@@ -18,13 +18,7 @@ class CriarTabelaAndares extends Migration
             $table->timestamps();
             $table->string('descricao',255);
             $table->boolean('ativo')->defaut(true);
-            $table->integer('localizacao_id')->unsigned();
 
-            /*CHAVE ESTRENGEIRA*/
-            $table->foreign('localizacao_id')
-                ->references('id')
-                ->on('localizacoes')
-                ->onDelete('cascade');
         });
     }
 

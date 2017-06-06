@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CriarTabelaPontosFuga extends Migration
+class CriarTabelaRotaFugas extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,18 @@ class CriarTabelaPontosFuga extends Migration
      */
     public function up()
     {
-        Schema::create('pontos_fuga', function (Blueprint $table) {
+        Schema::create('rotafugas', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
             $table->string('descricao',255);
             $table->boolean('ativo')->defaut(true);
+            /*CHAVE ESTRENGEIRA*/
+            $table->integer('sala_id')->unsigned();
+            $table->foreign('sala_id')
+                ->references('id')
+                ->on('salas')
+                ->onDelete('cascade');
+            $table->string('imagem',255);
         });
     }
 
@@ -28,6 +35,6 @@ class CriarTabelaPontosFuga extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pontos_fuga');
+        Schema::dropIfExists('rotafugas');
     }
 }

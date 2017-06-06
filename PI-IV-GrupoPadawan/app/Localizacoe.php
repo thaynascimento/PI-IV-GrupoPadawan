@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Localizacoe extends Model
 {
     public function localizacoe(){
-        return $this-> belongsTo(Andare::Class);
+        return $this-> belongsTo(Localizacoe::Class);
     }
 }
