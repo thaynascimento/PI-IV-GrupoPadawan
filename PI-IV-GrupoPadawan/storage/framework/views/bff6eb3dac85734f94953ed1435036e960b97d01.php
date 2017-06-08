@@ -1,4 +1,3 @@
-
 <?php $__env->startSection('titulo', 'Página de Usuários'); ?>
 <?php $__env->startSection('conteudo'); ?>
     <p>

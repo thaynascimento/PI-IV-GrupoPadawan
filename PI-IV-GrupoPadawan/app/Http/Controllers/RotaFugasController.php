@@ -53,7 +53,7 @@ class RotaFugasController extends Controller
         $rotafugas->sala_id = Input::get('sala_id');
         $rotafugas ->imagem = $nome_imagem;
         $rotafugas->save();
-        $rotafugas->salas()->attach(Input::get('sala_id'));
+        //$rotafugas->salas()->attach(Input::get('sala_id'));
 
         return redirect()->route('rotafugas.index');
     }

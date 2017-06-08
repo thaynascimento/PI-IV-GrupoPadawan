@@ -25,12 +25,12 @@
                         <li><a href="{{ route('salas.index') }}">Salas</a></li>
                         <li><a href="{{ route('andares.index') }}">Andares</a></li>
                         <li><a href="{{ route('localizacoes.index') }}">Prédios</a></li>
-                        <li><a href="{{ route('rotafugas.index') }}">Rota de Fuga</a></li>
+                        <li><a href="{{ route('rotafugas.index') }}">Rotas de Fugas</a></li>
                     </ul>
-                    <ul class="nav navbar-nav navbar-right">
+                    <!--<ul class="nav navbar-nav navbar-right">
                         <li><a href="#"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
                         <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                    </ul>
+                    </ul>-->
                 </div>
             </nav>
             @yield('conteudo')

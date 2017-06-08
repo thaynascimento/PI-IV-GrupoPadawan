@@ -63,7 +63,8 @@ class UsuariosController extends Controller
      */
     public function show($id)
     {
-        //
+        $usuarios = Usuario::get()->where('email', $id);
+        return ($usuarios);
     }
 
     /**

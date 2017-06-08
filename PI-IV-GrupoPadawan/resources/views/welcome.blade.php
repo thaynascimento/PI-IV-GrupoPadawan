@@ -62,9 +62,25 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            #corpo{
+                background-image: url('../../imagens/back.jpg');
+                background-repeat: no-repeat;
+                background-size:100%;
+                bottom: 0;
+                left: 0;
+                overflow: auto;
+                padding: 3em;
+                position: absolute;
+                right: 0;
+                text-align: center;
+                top: 0;
+                background-size: cover;
+            }
         </style>
     </head>
     <body>
+    <div id="corpo">
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -76,20 +92,21 @@
                     @endif
                 </div>
             @endif
-
             <div class="content">
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
                 <div class="title m-b-md">
-                    Laravel
+                    <b>ROTA DE FUGA - PADAWAN</b>
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a href="{{ route('usuarios.index') }}">Entrar</a>
                 </div>
             </div>
         </div>
+    </div>
     </body>
 </html>
