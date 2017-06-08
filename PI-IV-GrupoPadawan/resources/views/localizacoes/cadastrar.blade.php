@@ -1,6 +1,7 @@
 <html>
     <head>
         <title>Cadastro de Localizações</title>
+        <link rel="stylesheet" type="text/css" href="../../css/app.css"/>
     </head>
     <body>
         <div>
@@ -11,20 +12,6 @@
                     <label>Nome da Localização:</label><br>
                     <input type="text" name="descricao" placeholder="Informe o nome do prédio"><p>
                 </div>
-                <select name="localizacao_id" id="localizacao_id">
-                    @forelse($localizacoes as $item)
-                        <option value="{{$item->id}}">{{$item->descricao}}</option>
-                    @empty
-                        <option disabled>Nenhum prédio cadastrado!</option>
-                    @endforelse
-                </select><p>
-                <select name="andar_id" id="andar_id">
-                    @forelse($andares as $item)
-                        <option value="{{$item->id}}">{{$item->descricao}}</option>
-                    @empty
-                        <option disabled>Nenhum andar cadastrado!</option>
-                    @endforelse
-                </select><p>
                 <input type="submit" value="Enviar">
             </form>
         </div>

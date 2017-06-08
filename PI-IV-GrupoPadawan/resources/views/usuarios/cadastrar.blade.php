@@ -1,6 +1,7 @@
 <html>
     <head>
         <title>Cadastro de Usuários</title>
+        <link rel="stylesheet" type="text/css" href="../../css/app.css"/>
     </head>
     <body>
         <div>
@@ -8,7 +9,7 @@
             <form method="post" action="{{route('usuarios.store')}}">
                 <input type="hidden" name="_token" value="{{csrf_token()}}">
                 <div class="form">
-                    <label>Usuário:</label><br>
+                    <label>Nome:</label><br>
                     <input type="text" name="nome" placeholder="Informe o nome"><p>
                 </div>
                 <div class="form">

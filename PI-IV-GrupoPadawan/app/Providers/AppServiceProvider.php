@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Cargo;
 use App\Localizacoe;
 use App\Login;
+use App\RotaFuga;
 use App\Usuario;
 use App\Andare;
 use App\Sala;
@@ -42,6 +43,11 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('salas.index', function($view){
             $salas = Sala::get();
             $view->with('salas', $salas);
+        });
+
+        view()->composer('rotafugas.index', function($view){
+            $rotafugas = RotaFuga::get();
+            $view->with('rotafugas', $rotafugas);
         });
 
     }

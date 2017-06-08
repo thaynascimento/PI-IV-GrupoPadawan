@@ -1,6 +1,7 @@
 <html>
     <head>
         <title>Cadastro de Localizações</title>
+        <link rel="stylesheet" type="text/css" href="../../css/app.css"/>
     </head>
     <body>
         <div>

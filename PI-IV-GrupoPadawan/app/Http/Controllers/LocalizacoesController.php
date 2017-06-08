@@ -40,7 +40,7 @@ class LocalizacoesController extends Controller
     {
         $localizacao = new Localizacoe();
         $localizacao->descricao = Input::get('descricao');
-        $localizacao['ativo'] = (!isset($localizacao['ativo'])) ? 1 : 0;
+        $localizacao['ativo'] = (!isset($localizacao['ativo'])) ? 0 : 1;
         $localizacao->save();
         return redirect()->route('localizacoes.index');
     }

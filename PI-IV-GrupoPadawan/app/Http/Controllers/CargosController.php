@@ -40,7 +40,7 @@ class CargosController extends Controller
     {
         $cargo = new Cargo();
         $cargo->descricao = Input::get('descricao');
-        $cargo['ativo'] = (!isset($cargo['ativo'])) ? 1 : 0;
+        $cargo['ativo'] = (!isset($cargo['ativo'])) ? 0 : 1;
         $cargo->save();
         return redirect()->route('cargos.index');
     }

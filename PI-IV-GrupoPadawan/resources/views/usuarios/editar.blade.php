@@ -1,6 +1,7 @@
 <html>
     <head>
         <title>Edição de Usuários</title>
+        <link rel="stylesheet" type="text/css" href="../../css/app.css"/>
     </head>
     <body>
         <div>
@@ -24,7 +25,7 @@
                     <label>Telefone:</label><br>
                     <input type="text" name="telefone" value="{{$telefone}}"><p>
                 </div>
-                @if($lider_de_fuga == 1)
+                @if($lider_de_fuga == 'Sim')
                     <input type="checkbox" name="lider_de_fuga" value="lider_de_fuga" checked>Líder de Fuga?<p>
                 @else
                     <input type="checkbox" name="lider_de_fuga" value="lider_de_fuga">Líder de Fuga?<p>
@@ -43,7 +44,7 @@
                 </select><p>
                 <label for="ativo">Status: </label><br>
                 <select name="ativo" id="ativo" value="{{$ativo}}">
-                    @if($ativo == 1){
+                    @if($ativo == 'Sim'){
                         <option value="1" id="ativo" selected>Ativo</option>
                         <option value="0" id="ativo">Inativo</option>
                     }@else{

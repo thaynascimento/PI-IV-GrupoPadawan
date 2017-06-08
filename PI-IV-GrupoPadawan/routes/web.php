@@ -21,4 +21,4 @@ Route::resource('localizacoes', 'LocalizacoesController');
 Route::resource('andares', 'AndaresController');
 Route::resource('salas', 'SalasController');
 Route::resource('login', 'LoginsController');
-
+Route::resource('rotafugas', 'RotaFugasController');

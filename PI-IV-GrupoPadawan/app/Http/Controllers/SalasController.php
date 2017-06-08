@@ -44,12 +44,12 @@ class SalasController extends Controller
     {
         $salas = new Sala();
         $salas->descricao = Input::get('descricao');
-        $salas['ativo'] = (!isset($salas['ativo'])) ? 1 : 0;
+        $salas['ativo'] = (!isset($salas['ativo'])) ? 0 : 1;
         $salas->localizacao_id = Input::get('localizacao_id');
         $salas->andar_id = Input::get('andar_id');
         $salas->save();
-        $salas->localizacoe()->attach(Input::get('localizacao_id'));
-        $salas->andares()->attach(Input::get('andar_id'));
+        //$salas->localizacoe()->attach(Input::get('localizacao_id'));
+        //$salas->andares()->attach(Input::get('andar_id'));
 
         return redirect()->route('salas.index');
     }
@@ -73,10 +73,10 @@ class SalasController extends Controller
      */
     public function edit($id)
     {
-        $salas = Usuario::find($id);
+        $salas = Sala::find($id);
         $localizacoes = Localizacoe::get();
         $andares = Andare::get();
-        return view('usuarios.editar', [
+        return view('salas.editar', [
             'id' => $salas->id,
             'descricao' => $salas->descricao,
             'ativo' => $salas->ativo,
