@@ -7,6 +7,7 @@
             <span class="glyphicon glyphicon-plus">Adicionar</span></a>
         </button>
     </p>
+    <h3><strong>Listagem de Usuários</strong></h3>
     <table class="table table-hover">
         <thead>
             <th>ID</th>

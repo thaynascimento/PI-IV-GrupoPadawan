@@ -7,6 +7,7 @@
                     <span class="glyphicon glyphicon-plus">Adicionar</span></a>
             </button>
         </p>
+        <h3><strong>Listagem de Prédios</strong></h3>
         <table class="table table-hover">
             <thead>
                 <th>ID</th>
@@ -36,7 +37,7 @@
                 </tr>
             @empty
                 <tr>
-                    <td colspan="9">Nenhuma localização encontrada!</td>
+                    <td colspan="9">Nenhum prédio encontrado!</td>
                 </tr>
             @endforelse
             </tbody>

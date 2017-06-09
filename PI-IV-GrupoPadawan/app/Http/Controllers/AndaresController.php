@@ -65,7 +65,6 @@ class AndaresController extends Controller
     public function edit($id)
     {
         $andar = Andare::find($id);
-        $localizacoes = Localizacoe::get();
         return view('andares.editar', [
             'id' => $andar->id,
             'descricao' => $andar->descricao,

@@ -1,19 +1,13 @@
-<html>
-    <head>
-        <title>Cadastro de Localizações</title>
-        <link rel="stylesheet" type="text/css" href="../../css/app.css"/>
-    </head>
-    <body>
-        <div>
-            <h2>Informe abaixo os dados da localização:</h2>
-            <form method="post" action="{{route('localizacoes.store')}}">
-                <input type="hidden" name="_token" value="{{csrf_token()}}">
-                <div class="form">
-                    <label>Nome da Localização:</label><br>
-                    <input type="text" name="descricao" placeholder="Informe o nome do prédio"><p>
-                </div>
-                <input type="submit" value="Enviar">
-            </form>
-        </div>
-    </body>
-</html>
+@extends('layouts.main')
+@section('titulo', 'Cadastro de Cargo')
+@section('conteudo')
+        <h3><strong>Informe abaixo os dados do prédio:</strong></h3>
+        <form method="post" action="{{route('localizacoes.store')}}">
+            <input type="hidden" name="_token" value="{{csrf_token()}}">
+            <div class="form">
+                <label>Nome da Localização:</label><br>
+                <input type="text" name="descricao" placeholder="Informe o nome do prédio"><p>
+            </div>
+            <input type="submit" value="Cadastrar">
+        </form>
+@endsection
