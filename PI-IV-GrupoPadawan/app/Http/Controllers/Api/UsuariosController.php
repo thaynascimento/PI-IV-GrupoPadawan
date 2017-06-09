@@ -61,7 +61,7 @@ class UsuariosController extends Controller
     {
         /*$usuarios = Usuario::get()->where('email', $id);
         return response()->json($usuarios);*/
-        return Usuario::find($id);
+        return Usuario::find('email', $id);
     }
 
     /**
