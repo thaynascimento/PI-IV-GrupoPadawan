@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Api;
 
+use DB;
+use APP\Quotation;
 use App\Usuario;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Input;;
 
 class UsuariosController extends Controller
 {
@@ -61,7 +64,12 @@ class UsuariosController extends Controller
     {
         /*$usuarios = Usuario::get()->where('email', $id);
         return response()->json($usuarios);*/
-        return Usuario::find('email', $id);
+
+        $usuarios = DB::table('usuarios')->where('email', $id)->first();
+        $aux = $usuarios->id;
+        $usuarios = Usuario::find($aux);
+         return $usuarios;
+
     }
 
     /**
