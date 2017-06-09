@@ -12,7 +12,7 @@
                     <label>Usuário:</label><br>
                     <input type="text" name="descricao" placeholder="Informe o nome da sala"><p>
                 </div>
-                <label>Cargo:</label><br>
+                <label>Prédio:</label><br>
                 <select name="localizacao_id" id="localizacao_id">
                     @forelse($localizacoes as $item)
                         <option value="{{$item->id}}">{{$item->descricao}}</option>
