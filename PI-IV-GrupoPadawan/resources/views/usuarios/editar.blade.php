@@ -49,7 +49,7 @@
         <label>Selecione o Líder de Fuga Responsável:</label><br>
         <select name="lider_responsavel" id="lider_responsavel">
             @forelse($usuarios as $item)
-                <option value="{{$item->nome}}">{{$item->nome}}</option>
+                <option value="{{$item->id}}">{{$item->nome}}</option>
             @empty
                 <option disabled>Nenhuma líder de fuga cadastrado!</option>
             @endforelse
