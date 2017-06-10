@@ -61,23 +61,21 @@ class UsuariosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, $controle)
     {
         /*$usuarios = Usuario::get()->where('email', $id);
         return response()->json($usuarios);*/
-
-        $usuarios = DB::table('usuarios')->where('email', $id)->first();
-        $aux = $usuarios->id;
-        $usuarios = Usuario::find($aux);
-        return $usuarios;
-
+        if($controle==1){
+            $usuarios = DB::table('usuarios')->where('email', $id)->first();
+            $aux = $usuarios->id;
+            $usuarios = Usuario::find($aux);
+            return $usuarios;
+        }else{
+            $usuarios = Usuario::get()->where('lider_responsavel', $id);
+            return $usuarios;
+        }
     }
 
-    public function showLiderFugaResponsavel($id)
-    {
-        $usuarios = Usuario::get()->where('lider_responsavel', $id);
-        return $usuarios;
-    }
 
     /**
      * Show the form for editing the specified resource.
