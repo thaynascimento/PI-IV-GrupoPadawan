@@ -61,19 +61,18 @@ class UsuariosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id, $controle)
+    public function show($id)
     {
         /*$usuarios = Usuario::get()->where('email', $id);
         return response()->json($usuarios);*/
-        if($controle==1){
             $usuarios = DB::table('usuarios')->where('email', $id)->first();
             $aux = $usuarios->id;
             $usuarios = Usuario::find($aux);
             return $usuarios;
-        }else{
-            $usuarios = Usuario::get()->where('lider_responsavel', $id);
-            return $usuarios;
-        }
+
+            /*$usuarios = Usuario::get()->where('lider_responsavel', $id);
+            return $usuarios;*/
+
     }
 
 
