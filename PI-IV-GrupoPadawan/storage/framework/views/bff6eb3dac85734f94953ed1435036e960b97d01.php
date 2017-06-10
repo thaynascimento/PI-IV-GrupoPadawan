@@ -15,8 +15,10 @@
             <th>E-mail</th>
             <th>Telefone</th>
             <th>Líder de Fuga?</th>
-            <th>Ativo</th>
             <th>Cargo</th>
+            <th>Sala</th>
+            <th>Líder de Fuga Responsável</th>
+            <th>Ativo</th>
             <th>Imagem</th>
             <th>Ações</th>
         </thead>
@@ -29,8 +31,10 @@
                 <td><?php echo e($item->email); ?></td>
                 <td><?php echo e($item->telefone); ?></td>
                 <td><?php echo e($item->lider_de_fuga); ?></td>
-                <td><?php echo e($item->ativo); ?></td>
                 <td><?php echo e($item->cargo->descricao); ?></td>
+                <td><?php echo e($item->sala->descricao); ?></td>
+                <td><?php echo e($item->lider_responsavel); ?></td>
+                <td><?php echo e($item->ativo); ?></td>
                 <td><img width="90" src="/imagens/<?php echo e($item->imagem); ?>"/> </td>
                 <td>
                     <a href="<?php echo e(route('usuarios.edit', ['id' => $item->id])); ?>">
@@ -49,7 +53,7 @@
             </tr>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
             <tr>
-                <td colspan="9">Nenhum usuário encontrado!</td>
+                <td colspan="10">Nenhum usuário encontrado!</td>
             </tr>
         <?php endif; ?>
         </tbody>

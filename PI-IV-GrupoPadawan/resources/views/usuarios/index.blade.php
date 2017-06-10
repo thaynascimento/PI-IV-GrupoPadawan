@@ -16,8 +16,10 @@
             <th>E-mail</th>
             <th>Telefone</th>
             <th>Líder de Fuga?</th>
-            <th>Ativo</th>
             <th>Cargo</th>
+            <th>Sala</th>
+            <th>Líder de Fuga Responsável</th>
+            <th>Ativo</th>
             <th>Imagem</th>
             <th>Ações</th>
         </thead>
@@ -30,8 +32,10 @@
                 <td>{{$item->email}}</td>
                 <td>{{$item->telefone}}</td>
                 <td>{{$item->lider_de_fuga}}</td>
-                <td>{{$item->ativo}}</td>
                 <td>{{$item->cargo->descricao}}</td>
+                <td>{{$item->sala->descricao}}</td>
+                <td>{{$item->lider_responsavel}}</td>
+                <td>{{$item->ativo}}</td>
                 <td><img width="90" src="/imagens/{{$item->imagem}}"/> </td>
                 <td>
                     <a href="{{route('usuarios.edit', ['id' => $item->id])}}">
@@ -50,7 +54,7 @@
             </tr>
         @empty
             <tr>
-                <td colspan="9">Nenhum usuário encontrado!</td>
+                <td colspan="10">Nenhum usuário encontrado!</td>
             </tr>
         @endforelse
         </tbody>

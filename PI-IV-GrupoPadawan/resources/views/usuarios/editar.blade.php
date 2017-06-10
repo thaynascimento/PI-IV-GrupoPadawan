@@ -38,6 +38,22 @@
                 <option disabled>Nenhum cargo cadastrado</option>
             @endforelse
         </select><p>
+        <label>Selecione a Sala:</label><br>
+        <select name="sala_id" id="sala_id">
+            @forelse($sala as $item)
+                <option value="{{$item->id}}">{{$item->descricao}}</option>
+            @empty
+                <option disabled>Nenhuma sala cadastrada!</option>
+            @endforelse
+        </select><p>
+        <label>Selecione o Líder de Fuga Responsável:</label><br>
+        <select name="lider_responsavel" id="lider_responsavel">
+            @forelse($usuarios as $item)
+                <option value="{{$item->nome}}">{{$item->nome}}</option>
+            @empty
+                <option disabled>Nenhuma líder de fuga cadastrado!</option>
+            @endforelse
+        </select><p>
         <label for="ativo">Status: </label><br>
         <select name="ativo" id="ativo" value="{{$ativo}}">
             @if($ativo == 'Sim'){

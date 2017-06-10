@@ -6,7 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'AdicionarColunaUsuarios' => $baseDir . '/database/migrations/2017_06_10_033345_adicionar_coluna_tabela_usuarios.php',
     'App\\Andare' => $baseDir . '/app/Andare.php',
     'App\\Cargo' => $baseDir . '/app/Cargo.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
@@ -15,6 +14,7 @@ return array(
     'App\\Http\\Controllers\\Api\\AndaresController' => $baseDir . '/app/Http/Controllers/Api/AndaresController.php',
     'App\\Http\\Controllers\\Api\\CargosController' => $baseDir . '/app/Http/Controllers/Api/CargosController.php',
     'App\\Http\\Controllers\\Api\\LocalizacoesController' => $baseDir . '/app/Http/Controllers/Api/LocalizacoesController.php',
+    'App\\Http\\Controllers\\Api\\RotaFugasController' => $baseDir . '/app/Http/Controllers/Api/RotaFugasController.php',
     'App\\Http\\Controllers\\Api\\SalasController' => $baseDir . '/app/Http/Controllers/Api/SalasController.php',
     'App\\Http\\Controllers\\Api\\SoapController' => $baseDir . '/app/Http/Controllers/Api/SoapController.php',
     'App\\Http\\Controllers\\Api\\UsuariosController' => $baseDir . '/app/Http/Controllers/Api/UsuariosController.php',
@@ -57,12 +57,7 @@ return array(
     'Carbon\\Carbon' => $vendorDir . '/nesbot/carbon/src/Carbon/Carbon.php',
     'Carbon\\CarbonInterval' => $vendorDir . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
     'Carbon\\Exceptions\\InvalidDateException' => $vendorDir . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',
-    'CriarTabelaAndares' => $baseDir . '/database/migrations/2017_05_20_183748_criar_tabela_andares.php',
-    'CriarTabelaCargos' => $baseDir . '/database/migrations/2017_05_20_183400_criar_tabela_cargos.php',
-    'CriarTabelaPredios' => $baseDir . '/database/migrations/2017_05_20_183058_criar_tabela_predios.php',
-    'CriarTabelaRotaFugas' => $baseDir . '/database/migrations/2017_05_20_183839_criar_tabela_rotafugas.php',
-    'CriarTabelaSalas' => $baseDir . '/database/migrations/2017_05_20_183813_criar_tabela_salas.php',
-    'CriarTabelaUsuarios' => $baseDir . '/database/migrations/2017_05_20_183552_criar_tabela_usuarios.php',
+    'CriarTabelaPredios1' => $baseDir . '/database/migrations/2017_06_10_063852_criar_tabela_predios_1.php',
     'Cron\\AbstractField' => $vendorDir . '/mtdowling/cron-expression/src/Cron/AbstractField.php',
     'Cron\\CronExpression' => $vendorDir . '/mtdowling/cron-expression/src/Cron/CronExpression.php',
     'Cron\\DayOfMonthField' => $vendorDir . '/mtdowling/cron-expression/src/Cron/DayOfMonthField.php',

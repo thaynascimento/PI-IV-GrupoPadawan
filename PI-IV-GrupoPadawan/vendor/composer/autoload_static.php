@@ -279,7 +279,6 @@ class ComposerStaticInit80e88e73ebfcd4ef8fa2c029c83c01b8
     );
 
     public static $classMap = array (
-        'AdicionarColunaUsuarios' => __DIR__ . '/../..' . '/database/migrations/2017_06_10_033345_adicionar_coluna_tabela_usuarios.php',
         'App\\Andare' => __DIR__ . '/../..' . '/app/Andare.php',
         'App\\Cargo' => __DIR__ . '/../..' . '/app/Cargo.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
@@ -288,6 +287,7 @@ class ComposerStaticInit80e88e73ebfcd4ef8fa2c029c83c01b8
         'App\\Http\\Controllers\\Api\\AndaresController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/AndaresController.php',
         'App\\Http\\Controllers\\Api\\CargosController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/CargosController.php',
         'App\\Http\\Controllers\\Api\\LocalizacoesController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/LocalizacoesController.php',
+        'App\\Http\\Controllers\\Api\\RotaFugasController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/RotaFugasController.php',
         'App\\Http\\Controllers\\Api\\SalasController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/SalasController.php',
         'App\\Http\\Controllers\\Api\\SoapController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/SoapController.php',
         'App\\Http\\Controllers\\Api\\UsuariosController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/UsuariosController.php',
@@ -330,12 +330,7 @@ class ComposerStaticInit80e88e73ebfcd4ef8fa2c029c83c01b8
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonInterval' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
         'Carbon\\Exceptions\\InvalidDateException' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',
-        'CriarTabelaAndares' => __DIR__ . '/../..' . '/database/migrations/2017_05_20_183748_criar_tabela_andares.php',
-        'CriarTabelaCargos' => __DIR__ . '/../..' . '/database/migrations/2017_05_20_183400_criar_tabela_cargos.php',
-        'CriarTabelaPredios' => __DIR__ . '/../..' . '/database/migrations/2017_05_20_183058_criar_tabela_predios.php',
-        'CriarTabelaRotaFugas' => __DIR__ . '/../..' . '/database/migrations/2017_05_20_183839_criar_tabela_rotafugas.php',
-        'CriarTabelaSalas' => __DIR__ . '/../..' . '/database/migrations/2017_05_20_183813_criar_tabela_salas.php',
-        'CriarTabelaUsuarios' => __DIR__ . '/../..' . '/database/migrations/2017_05_20_183552_criar_tabela_usuarios.php',
+        'CriarTabelaPredios1' => __DIR__ . '/../..' . '/database/migrations/2017_06_10_063852_criar_tabela_predios_1.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/AbstractField.php',
         'Cron\\CronExpression' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/CronExpression.php',
         'Cron\\DayOfMonthField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/DayOfMonthField.php',

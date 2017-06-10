@@ -28,7 +28,15 @@ class CriarTabelaUsuarios extends Migration
                 ->references('id')
                 ->on('cargos')
                 ->onDelete('cascade');
+            /*CHAVE ESTRENGEIRA*/
+            $table->integer('sala_id')->unsigned();
+            $table->foreign('sala_id')
+                ->references('id')
+                ->on('salas')
+                ->onDelete('cascade');
             $table->string('senha',255);
+            $table->string('imagem',255)->null;
+            $table->string('lider_responsavel',255);
         });
     }
 

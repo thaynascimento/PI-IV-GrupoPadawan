@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Cargo;
 use App\Usuario;
+use App\Sala;
 use Illuminate\Http\Request;
 use App\Http\Controllers\DB;
 use Illuminate\Support\Facades\Input;
+use APP\Quotation;
 
 class UsuariosController extends Controller
 {
@@ -29,7 +31,9 @@ class UsuariosController extends Controller
     public function create(\Illuminate\Http\Request $request)
     {
         $cargos = Cargo::get();
-        return view('usuarios.cadastrar', ['cargos' => $cargos]);
+        $salas = Sala::get();
+        $usuarios = Usuario::get()->where('lider_de_fuga', 'Sim');
+        return view('usuarios.cadastrar', ['cargos' => $cargos, 'salas' => $salas, 'usuarios' => $usuarios]);
     }
 
     /**
@@ -54,6 +58,8 @@ class UsuariosController extends Controller
         $usuario['lider_de_fuga'] = (bool)Input::get('lider_de_fuga');
         $usuario['ativo'] = (!isset($usuario['ativo'])) ? 0 : 1;
         $usuario->cargo_id = Input::get('cargo_id');
+        $usuario->sala_id = Input::get('sala_id');
+        $usuario->lider_responsavel = Input::get('lider_responsavel');
         $usuario->senha = Input::get('senha');
         $usuario ->imagem = $nome_imagem;
         $usuario->save();
@@ -84,6 +90,8 @@ class UsuariosController extends Controller
     {
         $usuario = Usuario::find($id);
         $cargos = Cargo::get();
+        $salas = Sala::get();
+        $usuarios = Usuario::get()->where('lider_de_fuga', 'Sim');
         return view('usuarios.editar', [
             'id' => $usuario->id,
             'nome' => $usuario->nome,
@@ -93,9 +101,13 @@ class UsuariosController extends Controller
             'lider_de_fuga' => $usuario->lider_de_fuga,
             'ativo' => $usuario->ativo,
             'cargo_id' => $usuario->cargo_id,
+            'sala_id' => $usuario->sala_id,
+            'lider_responsavel' => $usuario->lider_responsavel,
             'senha' => $usuario->senha,
             'imagem' =>$usuario->imagem,
-            'cargo' =>$cargos
+            'cargo' =>$cargos,
+            'sala' =>$salas,
+            'usuarios' =>$usuarios
         ]);
 
     }
@@ -123,6 +135,8 @@ class UsuariosController extends Controller
         $usuario->lider_de_fuga = (bool)Input::get('lider_de_fuga');
         $usuario->ativo = Input::get('ativo');
         $usuario->cargo_id = Input::get('cargo_id');
+        $usuario->sala_id = Input::get('sala_id');
+        $usuario->lider_responsavel = Input::get('lider_responsavel');
         $usuario->senha = Input::get('senha');
         $usuario->imagem = $nome_imagem;
         $usuario->save();

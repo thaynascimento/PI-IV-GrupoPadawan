@@ -11,6 +11,10 @@ class Usuario extends Model
         return $this-> belongsTo(Cargo::Class);
     }
 
+    public function sala(){
+        return $this-> belongsTo(Sala::Class);
+    }
+
     public function getAtivoAttribute($value){
         return $value == 1 ? 'Sim' : 'Não';
     }

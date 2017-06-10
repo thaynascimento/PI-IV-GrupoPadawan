@@ -47,6 +47,7 @@ class UsuariosController extends Controller
         $usuario['lider_de_fuga'] = (!isset($cargo['lider_de_fuga'])) ? 0 : 1;
         $usuario['ativo'] = (!isset($cargo['ativo'])) ? 1 : 0;
         $usuario->cargo_id = Input::get('cargo_id');
+        $usuario->sala_id = Input::get('sala_id');
         $usuario->senha = Input::get('senha');
         $usuario->save();
         $usuario->cargos()->attach(Input::get('cargo_id'));
@@ -68,8 +69,14 @@ class UsuariosController extends Controller
         $usuarios = DB::table('usuarios')->where('email', $id)->first();
         $aux = $usuarios->id;
         $usuarios = Usuario::find($aux);
-         return $usuarios;
+        return $usuarios;
 
+    }
+
+    public function showLiderFugaResponsavel($id)
+    {
+        $usuarios = Usuario::get()->where('lider_responsavel', $id);
+        return $usuarios;
     }
 
     /**

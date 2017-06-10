@@ -24,6 +24,7 @@ Route::group(['namespace' => 'Api'], function(){
     Route::get('usuarios', 'UsuariosController@index');
     Route::post('usuarios', 'UsuariosController@store');
     Route::get('usuarios/{usuario}', 'UsuariosController@show');
+    Route::get('usuarios/{usuario}', 'UsuariosController@showLiderFugaResponsavel');
     Route::put('usuarios/{usuario}', 'UsuariosController@update');
     Route::delete('usuarios/{usuario}', 'UsuariosController@destroy');
 

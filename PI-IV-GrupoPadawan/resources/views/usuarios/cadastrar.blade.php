@@ -22,11 +22,28 @@
         </div>
         <input type="checkbox" name="lider_de_fuga" value="lider_de_fuga">Líder de Fuga?<p>
         <label>Cargo:</label><br>
+        <label>Selecione o Cargo:</label><br>
         <select name="cargo_id" id="cargo_id">
             @forelse($cargos as $item)
                 <option value="{{$item->id}}">{{$item->descricao}}</option>
             @empty
                 <option disabled>Nenhum cargo cadastrado!</option>
+            @endforelse
+        </select><p>
+        <label>Selecione a Sala:</label><br>
+        <select name="sala_id" id="sala_id">
+            @forelse($salas as $item)
+                <option value="{{$item->id}}">{{$item->descricao}}</option>
+            @empty
+                <option disabled>Nenhuma rota de fuga cadastrado!</option>
+            @endforelse
+        </select><p>
+        <label>Selecione o Líder de Fuga Responsável:</label><br>
+        <select name="lider_responsavel" id="lider_responsavel">
+            @forelse($usuarios as $item)
+                <option value="{{$item->id}}">{{$item->nome}}</option>
+            @empty
+                <option disabled>Nenhuma líder de fuga cadastrado!</option>
             @endforelse
         </select><p>
         <div class="form">
