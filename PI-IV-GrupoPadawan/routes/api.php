@@ -52,4 +52,10 @@ Route::group(['namespace' => 'Api'], function(){
     Route::delete('salas/{sala}', 'SalasController@destroy');
 
     Route::get('soap', 'SoapController@show');
+
+    Route::get('rotafugas', 'RotaFugasController@index');
+    Route::post('rotafugas', 'RotaFugasController@store');
+    Route::get('rotafugas/{rotafuga}', 'RotaFugasController@show');
+    Route::put('rotafugas/{rotafuga}', 'RotaFugasController@update');
+    Route::delete('rotafugas/{rotafuga}', 'RotaFugasController@destroy');
 });
