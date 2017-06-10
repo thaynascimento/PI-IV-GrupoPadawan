@@ -31,7 +31,7 @@
             <label>Imagem Atual:</label><br>
             <img width="85" src="/imagens/{{$imagem}}"/><p>
             <label>Selecione a Nova Imagem:</label><br>
-            <input type="file" name="imagem" value="imagem" id="imagem"><p>
+            <input type="file" name="novaImagem" value="novaImagem" id="novaImagem"><p>
             <input type="submit" value="Salvar Alterações">
         </form>
 @endsection

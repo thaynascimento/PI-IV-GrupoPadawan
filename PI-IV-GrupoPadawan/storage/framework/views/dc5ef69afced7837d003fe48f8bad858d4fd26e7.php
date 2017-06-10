@@ -1,7 +1,7 @@
 <?php $__env->startSection('titulo', 'Edição de Usuário'); ?>
 <?php $__env->startSection('conteudo'); ?>
     <h3><strong>Informe abaixo os dados do usuário:</strong></h3>
-    <form method="post" action="<?php echo e(route('usuarios.update', ['id' => $id])); ?>">
+    <form method="post" class="table table-hover" action="<?php echo e(route('usuarios.update', ['id' => $id])); ?>" enctype="multipart/form-data">
         <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
         <input type="hidden" name="_method" value="PUT">
         <div class="form">
@@ -52,6 +52,10 @@
             <label>Senha:</label><br>
             <input type="password" name="senha" value="<?php echo e($senha); ?>"><p>
         </div>
+        <label>Imagem Atual:</label><br>
+        <img width="85" src="/imagens/<?php echo e($imagem); ?>"/><p>
+        <label>Selecione a Nova Imagem:</label><br>
+        <input type="file" name="novaImagem" value="novaImagem" id="novaImagem"><p>
         <input type="submit" value="Salvar Alterações">
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.main', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

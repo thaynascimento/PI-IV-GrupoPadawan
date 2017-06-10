@@ -18,7 +18,7 @@
             <th>Líder de Fuga?</th>
             <th>Ativo</th>
             <th>Cargo</th>
-            <th>Ações</th>
+            <th>Imagem</th>
             <th>Ações</th>
         </thead>
         <tbody>
@@ -32,6 +32,7 @@
                 <td>{{$item->lider_de_fuga}}</td>
                 <td>{{$item->ativo}}</td>
                 <td>{{$item->cargo->descricao}}</td>
+                <td><img width="90" src="/imagens/{{$item->imagem}}"/> </td>
                 <td>
                     <a href="{{route('usuarios.edit', ['id' => $item->id])}}">
                         <span class="glyphicon glyphicon-pencil"></span>

@@ -2,7 +2,7 @@
 @section('titulo', 'Edição de Usuário')
 @section('conteudo')
     <h3><strong>Informe abaixo os dados do usuário:</strong></h3>
-    <form method="post" action="{{route('usuarios.update', ['id' => $id])}}">
+    <form method="post" class="table table-hover" action="{{route('usuarios.update', ['id' => $id])}}" enctype="multipart/form-data">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <input type="hidden" name="_method" value="PUT">
         <div class="form">
@@ -53,5 +53,9 @@
             <label>Senha:</label><br>
             <input type="password" name="senha" value="{{$senha}}"><p>
         </div>
+        <label>Imagem Atual:</label><br>
+        <img width="85" src="/imagens/{{$imagem}}"/><p>
+        <label>Selecione a Nova Imagem:</label><br>
+        <input type="file" name="novaImagem" value="novaImagem" id="novaImagem"><p>
         <input type="submit" value="Salvar Alterações">
 @endsection

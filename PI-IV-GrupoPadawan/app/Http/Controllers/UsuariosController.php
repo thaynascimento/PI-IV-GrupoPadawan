@@ -40,6 +40,12 @@ class UsuariosController extends Controller
      */
     public function store(Request $request)
     {
+        $imagem = $request->file('imagem');
+        $pasta = public_path() . '/imagens';
+        $nome_imagem = 'usuario' . time() . '.' . $imagem->getClientOriginalExtension();
+
+        $nova_imagem = $imagem->move($pasta,$nome_imagem);
+
         $usuario = new Usuario();
         $usuario->nome = Input::get('nome');
         $usuario->centro_custo = Input::get('centro_custo');
@@ -49,6 +55,7 @@ class UsuariosController extends Controller
         $usuario['ativo'] = (!isset($usuario['ativo'])) ? 0 : 1;
         $usuario->cargo_id = Input::get('cargo_id');
         $usuario->senha = Input::get('senha');
+        $usuario ->imagem = $nome_imagem;
         $usuario->save();
         //$usuario->cargo()->attach(Input::get('cargo_id'));
 
@@ -87,8 +94,10 @@ class UsuariosController extends Controller
             'ativo' => $usuario->ativo,
             'cargo_id' => $usuario->cargo_id,
             'senha' => $usuario->senha,
+            'imagem' =>$usuario->imagem,
             'cargo' =>$cargos
         ]);
+
     }
 
     /**
@@ -98,8 +107,14 @@ class UsuariosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update($id)
+    public function update(Request $request, $id)
     {
+        $imagem = $request->file('novaImagem');
+        $pasta = public_path() . '/imagens';
+        $nome_imagem = 'usuario' . time() . '.' . $imagem->getClientOriginalExtension();
+
+        $nova_imagem = $imagem->move($pasta, $nome_imagem);
+
         $usuario = Usuario::find($id);
         $usuario->nome = Input::get('nome');
         $usuario->centro_custo = Input::get('centro_custo');
@@ -109,6 +124,7 @@ class UsuariosController extends Controller
         $usuario->ativo = Input::get('ativo');
         $usuario->cargo_id = Input::get('cargo_id');
         $usuario->senha = Input::get('senha');
+        $usuario->imagem = $nome_imagem;
         $usuario->save();
 
         return redirect()->route('usuarios.index');

@@ -96,13 +96,19 @@ class RotaFugasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update($id)
+    public function update(Request $request, $id)
     {
+        $imagem = $request->file('novaImagem');
+        $pasta = public_path() . '/imagens';
+        $nome_imagem = 'rota' . time() . '.' . $imagem->getClientOriginalExtension();
+
+        $nova_imagem = $imagem->move($pasta,$nome_imagem);
+
         $rotafuga = RotaFuga::find($id);
         $rotafuga->descricao = Input::get('descricao');
         $rotafuga->ativo = Input::get('ativo');
         $rotafuga->sala_id = Input::get('sala_id');
-        $rotafuga->imagem = Input::get('imagem');
+        $rotafuga ->imagem = $nome_imagem;
         $rotafuga->save();
 
         return redirect()->route('rotafugas.index');

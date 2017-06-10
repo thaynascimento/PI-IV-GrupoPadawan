@@ -1,7 +1,7 @@
 <?php $__env->startSection('titulo', 'Cadastro de Usuário'); ?>
 <?php $__env->startSection('conteudo'); ?>
     <h3><strong>Informe abaixo os dados do usuário:</strong></h3>
-    <form method="post" class="table table-hover" action="<?php echo e(route('usuarios.store')); ?>">
+    <form method="post" class="table table-hover" action="<?php echo e(route('usuarios.store')); ?>" enctype="multipart/form-data">
         <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
         <div class="form">
             <label>Nome:</label><br>
@@ -17,7 +17,7 @@
         </div>
         <div class="form">
             <label>Telefone:</label><br>
-            <input type="text" name="telefone" placeholder="Informe o telefone"><p>
+            <input type="text" name="telefone" maxlength="9" placeholder="Informe o telefone"><p>
         </div>
         <input type="checkbox" name="lider_de_fuga" value="lider_de_fuga">Líder de Fuga?<p>
         <label>Cargo:</label><br>
@@ -32,6 +32,8 @@
             <label>Senha:</label><br>
             <input type="password" name="senha" placeholder="******"><p>
         </div>
+        <label>Selecione a Imagem:</label><br>
+        <input type="file" name="imagem" value="imagem" id="imagem"><p><p>
         <input type="submit" value="Cadastrar">
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.main', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
