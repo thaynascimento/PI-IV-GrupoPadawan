@@ -63,18 +63,19 @@ class UsuariosController extends Controller
      */
     public function show($id)
     {
-        /*$usuarios = Usuario::get()->where('email', $id);
-        return response()->json($usuarios);*/
+//        $usuarios = Usuario::get()->where('email', $id);
+//        return response()->json($usuarios);
             $usuarios = DB::table('usuarios')->where('email', $id)->first();
             $aux = $usuarios->id;
             $usuarios = Usuario::find($aux);
             return $usuarios;
-
-            /*$usuarios = Usuario::get()->where('lider_responsavel', $id);
-            return $usuarios;*/
-
     }
 
+    public function lider($id){
+        $id_lider = Usuario::find($id)->lider_responsavel;
+        $lider = Usuario::find($id_lider);
+        return $lider;
+    }
 
     /**
      * Show the form for editing the specified resource.

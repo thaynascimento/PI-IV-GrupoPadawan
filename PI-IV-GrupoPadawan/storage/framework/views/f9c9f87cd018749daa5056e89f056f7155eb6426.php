@@ -40,7 +40,7 @@
         <label>Selecione o Líder de Fuga Responsável:</label><br>
         <select name="lider_responsavel" id="lider_responsavel">
             <?php $__empty_1 = true; $__currentLoopData = $usuarios; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-                <option value="<?php echo e($item->nome); ?>"><?php echo e($item->nome); ?></option>
+                <option value="<?php echo e($item->id); ?>"><?php echo e($item->nome); ?></option>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                 <option disabled>Nenhuma líder de fuga cadastrado!</option>
             <?php endif; ?>
